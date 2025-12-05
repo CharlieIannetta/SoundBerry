@@ -13,5 +13,5 @@ Raspberry Pi based soundboard for the Indian River School District in Delaware. 
 
 
 # Arduino Setup
-1. Copy the code from the file "SBArduinocode.txt" over into your arduino code editor and send it over
-2. 
+1. Copy the code from the file "SBarduinocode.txt" over into your arduino code editor and send it over
+2. Take your Arduino and wire your breadboard to look like "ArduinoWiring.png" or "Soundberry Schematic.pdf"
