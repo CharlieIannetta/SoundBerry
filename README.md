@@ -1,8 +1,8 @@
 # SoundBerry
-By Concord High School group C.3.8
+## By Concord High School Group C.3.8
 2025-2026
-Ahmed El Mashad and Charlie Iannetta
-Raspberry Pi based soundboard for the Indian River School District in Delaware. This repository will hold a python script as well as sound files for our Raspberry Pi 3 B running PIOS
+## Ahmed El Mashad and Charlie Iannetta
+### Raspberry Pi based soundboard for the Indian River School District in Delaware. This repository will hold a python script as well as sound files for our Raspberry Pi 3 B running PIOS
 # Requirements to create your own Soundberry
   1. Raspberry Pi (atleast Pi 3) with Raspberry Pi OS Installed (Previously Raspbian).
   2. One Arduino or equivilant microcontroller that uses C++
