@@ -1,0 +1,70 @@
+// --- Pin Setup ---
+const int buttons[10] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};  // Normal buttons
+const int randomButton = 12;   // Button for random number generation
+const int switchPin = A0;      // Analog switch input (two positions, no center)
+
+// --- State Tracking ---
+int buttonState[10];
+int lastButtonState[10];
+int lastRandomState = HIGH;
+
+void setup() {
+  Serial.begin(9600);
+
+  // Setup button pins
+  for (int i = 0; i < 10; i++) {
+    pinMode(buttons[i], INPUT_PULLUP);
+    buttonState[i] = HIGH;
+    lastButtonState[i] = HIGH;
+  }
+
+  pinMode(randomButton, INPUT_PULLUP);
+  pinMode(switchPin, INPUT);
+
+  // Use floating analog input for random seed
+  randomSeed(analogRead(A1));
+
+  Serial.println("Soundberry Arduino Ready!");
+}
+
+void loop() {
+  // --- Read analog switch ---
+  int switchValue = analogRead(switchPin);
+  bool modeB = (switchValue > 512);  // HIGH side = 11–20, LOW side = 1–10
+
+  // --- Check normal buttons ---
+  for (int i = 0; i < 10; i++) {
+    int currentState = digitalRead(buttons[i]);
+
+    // Detect button press (LOW if using INPUT_PULLUP)
+    if (currentState == LOW && lastButtonState[i] == HIGH) {
+      int numberToSend;
+      if (modeB) {
+        numberToSend = i + 11;  // Buttons 2–11 → numbers 11–20
+      } else {
+        numberToSend = i + 1;   // Buttons 2–11 → numbers 1–10
+      }
+      Serial.println(numberToSend);
+      delay(250); // Debounce
+    }
+
+    lastButtonState[i] = currentState;
+  }
+
+  // --- Check random button ---
+  int randomState = digitalRead(randomButton);
+
+  if (randomState == LOW && lastRandomState == HIGH) {
+    int randNum;
+    if (modeB) {
+      randNum = random(11, 21); // Random number 11–20
+    } else {
+      randNum = random(1, 11);  // Random number 1–10
+    }
+
+    Serial.println(randNum);
+    delay(300); // Debounce for random button
+  }
+
+  lastRandomState = randomState;
+}
