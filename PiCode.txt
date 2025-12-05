@@ -1,0 +1,44 @@
+import serial
+import vlc
+import os
+import time
+
+serial_port = "/dev/ttyACM0"
+baud_rate = 9600
+print("Loading Soundberry Program")
+def find_usb_path():
+    base_path = "/media/estockstudent"
+    if os.path.exists(base_path):
+        for folder in os.listdir(base_path):
+            full_path = os.path.join(base_path, folder)
+            if os.path.isdir(full_path):
+                if any(f.endswith(".mp3") for f in os.listdir(full_path)):
+                    return full_path
+    return None
+
+print(f"Loaded! have fun!")
+
+usb_path = find_usb_path()
+
+ser = serial.Serial(serial_port, baud_rate, timeout=1)
+time.sleep(2)
+
+player = None
+
+while True:
+    if ser.in_waiting > 0 and usb_path:
+        try:
+           data = ser.readline().decode('utf-8').strip()
+           if data.isdigit():
+               num = int(data)
+               filepath = os.path.join(usb_path, f"{num}.mp3")
+               
+               if os.path.exists(filepath):
+                   if player:
+                       player.stop()
+                       player.release()
+                   player = vlc.MediaPlayer(filepath)
+                   player.play()
+                   time.sleep(0.1)
+        except Exception:
+            pass
