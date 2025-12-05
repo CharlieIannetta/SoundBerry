@@ -1,7 +1,7 @@
 [Unit]
 Description=Play audio from Arduino Signal
 Type=simple
-ExecStart=/usr/bin/python3 /home/estockstudent/buttonsoundtest.py
+ExecStart=/usr/bin/python3 /home/estockstudent/PiCode.py
 WorkingDirectory=/home/estockstudent
 Restart=always
 User=estockstudent
