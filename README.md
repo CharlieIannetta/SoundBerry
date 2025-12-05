@@ -22,5 +22,5 @@
 
    
 # Raspberry Pi Setup
-1. (Optional but recommended) Using a flash drive, copy "PiCode.txt" over to your PiOS install (or type it manually its up to you)
-2. 
+1. (Optional but recommended) Using a flash drive, copy "PiCode.txt" and "playaudio.service" over to your PiOS install (or type it manually its up to you)
+2. move playaudio.serive to /etc/systemd/system
