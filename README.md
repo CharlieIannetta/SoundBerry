@@ -23,7 +23,7 @@ Raspberry Pi based soundboard for the Indian River School District in Delaware. 
    
 # Raspberry Pi Setup
 1. (Optional but recommended) Using a flash drive, copy "PiCode.txt" and "playaudio.service" over to your PiOS install (or type it manually its up to you)
-2. Move playaudio.serive to /etc/systemd/system
+2. Move playaudio.service to /etc/systemd/system
 3. Rename "PiCode.txt" to "PiCode.py"
 4. Eject and remove your flash drive
 5. Plug the flashdrive into your computer and download up to 20 (with base code and wiring) sound effects of choice.
