@@ -8,7 +8,7 @@ Raspberry Pi based soundboard for the Indian River School District in Delaware. 
   3. A Computer
   4. 10 Buttons, 1 3 pin analog switch, a 3.5mm aux jack
   5. Wires and a breadboard to connect everything
-  6. 11 1k ohm resistors
+  6. 11 1kΩ resistors
 
 
 # Arduino Setup
