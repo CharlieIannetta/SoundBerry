@@ -30,9 +30,9 @@ Raspberry Pi based soundboard for the Indian River School District in Delaware. 
 6. Rename each sound effect numbers 1-20 (for example, trumpet.mp4 -> 1.mp4 tuba.mp4 -> 2.mp4 and so on)
 7. Plug the flash drive back into the arduino now contaning all of the sound effects you added.
 8. Run these commands: 
-sudo systemctl daemon-reload
-sudo systemctl enable playaudio.service
-sudo systemctl start playaudio.service
+##### sudo systemctl daemon-reload
+##### sudo systemctl enable playaudio.service
+##### sudo systemctl start playaudio.service
 9. Check to make sure the service is active using this command:
 sudo systemctl status playaudio.service
 10. Move onto testing the Pi
