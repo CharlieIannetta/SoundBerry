@@ -44,4 +44,4 @@ sudo systemctl status playaudio.service
 3. Open the console
 4. Type in sudo reboot
 5. After the Pi has rebooted and is ready, click one of the buttons on your breadboard
-6. 
+6. If successful, move onto 
